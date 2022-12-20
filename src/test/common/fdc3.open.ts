@@ -19,7 +19,7 @@ export function getCommonOpenTests(control: OpenControl<any>, documentation: str
     }
   });
 
-  const AOpensBWithContext = `(${config.prefix}AOpensBWithContext) Can open app B from app A with context and ${config.target} as config.target but app B listening for null context`;
+  const AOpensBWithContext = `(${config.prefix}AOpensBWithContext1) Can open app B from app A with context and ${config.target} as config.target but app B listening for null context`;
   it(AOpensBWithContext, async () => {
     const receiver = control.contextReceiver("context-received");
     await control.openMockApp(openApp.c.name, undefined, "fdc3.instrument", true);
