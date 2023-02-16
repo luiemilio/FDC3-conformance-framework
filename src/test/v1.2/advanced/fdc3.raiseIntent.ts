@@ -38,8 +38,10 @@ export default () =>
         {
           type: ContextType.testContextX,
         },
-        IntentApp.IntentAppA
+        { name: IntentApp.IntentAppA }
       );
+      console.log('IntentResolution',intentResolution);
+      console.log('IntentApp',IntentApp.IntentAppA);
       validateIntentResolution(IntentApp.IntentAppA, intentResolution);
       await result;
     });
@@ -78,6 +80,8 @@ const validateIntentResolution = (appName: string, intentResolution: IntentResol
   if (typeof intentResolution.source === "string") {
     expect(intentResolution.source).to.eq(appName, raiseIntentDocs);
   } else if (typeof intentResolution.source === "object") {
+    console.log('IntentResolution name',(intentResolution.source as AppMetadata).name);
+    console.log('app Name',appName);
     expect((intentResolution.source as AppMetadata).name).to.eq(appName, raiseIntentDocs);
   } else assert.fail("Invalid intent resolution object");
 };
