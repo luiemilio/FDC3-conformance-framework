@@ -866,6 +866,16 @@
           }
         }
       },
+      "interop": {
+        "intents": {
+          "listensFor": {
+            "aTestingIntent": {
+              "displayName": "A Testing Intent",
+              "contexts": ["testContextX"]
+            }
+          }
+        }
+      },
       "version": "1.0.0",
       "tooltip": "placeholder",
       "publisher": "FINOS",

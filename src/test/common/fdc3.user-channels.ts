@@ -123,12 +123,11 @@ export function createUserChannelTests(cc: ChannelControl<any, any, any>, docume
       const wrapper = wrapPromise();
       let listener = await cc.setupAndValidateListener(undefined, "fdc3.instrument", "fdc3.instrument", errorMessage, () => {
         wrapper.resolve();
-        clearTimeout(timeout);
       });
       await cc.joinChannel(userChannels[0]);
       timeout = failOnTimeout("No context received!\n" + errorMessage);
       await wrapper.promise;
-
+      clearTimeout(timeout);
       cc.unsubscribeListeners([listener]);
     });
 
@@ -146,10 +145,10 @@ export function createUserChannelTests(cc: ChannelControl<any, any, any>, docume
       const wrapper = wrapPromise();
       let listener = await cc.setupAndValidateListener(undefined, "fdc3.instrument", "fdc3.instrument", errorMessage, () => {
         wrapper.resolve();
-        clearTimeout(timeout);
       });
       timeout = failOnTimeout("No context received!\n" + errorMessage);
       await wrapper.promise;
+      clearTimeout(timeout);
       cc.unsubscribeListeners([listener]);
     });
 
